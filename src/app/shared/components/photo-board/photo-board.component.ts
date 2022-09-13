@@ -17,16 +17,12 @@ export class PhotoBoardComponent implements OnChanges {
     }
   }
 
-  public groupColumns(photos: Photo[]): any[][] {
+  private groupColumns(photos: Photo[]): any[][] {
     const newRows = [];
-
-    for (let index = 0; index < photos.length; index += 4) {
-      const element = photos[index];
-      for (const iterator of photos) {
-
-      }
+    const step = 4
+    for (let index = 0; index < photos.length; index += step) {
+      newRows.push(photos.slice(index, index + step));
     }
-
-    return null
+    return newRows;
   }
 }
