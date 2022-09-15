@@ -4,9 +4,7 @@ import { PhotoListModule } from './photo-list.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PhotoListComponent } from './photo-list.component';
-import { buildPhotoList } from 'src/app/shared/components/photo-board/test/build-photo-list';
-import { of, Observable } from 'rxjs';
-import { Photo } from 'src/app/shared/components/photo-board/interfaces/photo';
+import { PhotoBoardMockService } from 'src/app/shared/components/photo-board/services/photo-board-mock.services';
 
 describe(PhotoListComponent.name + ' Mock Provider', () => {
   let component: PhotoListComponent;
@@ -20,11 +18,7 @@ describe(PhotoListComponent.name + ' Mock Provider', () => {
       ],
       providers: [{
         provide: PhotoBoardService,
-        useValue: {
-          getPhotos(): Observable<Photo[]> {
-            return of(buildPhotoList());
-          }
-        }
+        useClass: PhotoBoardMockService
       }],
       declarations: [ PhotoListComponent ]
     })
