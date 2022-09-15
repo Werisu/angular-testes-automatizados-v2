@@ -36,6 +36,10 @@ describe(PhotoListComponent.name + ' Mock Provider', () => {
     component = fixture.componentInstance;
   });
 
+  it('Should create component', () => {
+    expect(component).toBeTruthy();
+  });
+
   it(`(D) Should display board when data arrives`, () => {
     fixture.detectChanges();
     const board = fixture.nativeElement.querySelector('app-photo-board');
