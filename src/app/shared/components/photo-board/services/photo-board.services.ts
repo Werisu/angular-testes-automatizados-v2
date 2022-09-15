@@ -2,7 +2,7 @@ import { Photo } from './../interfaces/photo';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { delay, map, tap } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 
 @Injectable()
 export class PhotoBoardService {
@@ -19,8 +19,6 @@ export class PhotoBoardService {
         return { ...photo, description: photo.description.toLocaleUpperCase() }
       });
     }))
-    .pipe(tap((x) => console.log(x)
-    ))
     .pipe(delay(2000));
   }
 }

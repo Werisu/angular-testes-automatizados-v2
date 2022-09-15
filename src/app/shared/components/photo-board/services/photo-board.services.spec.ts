@@ -32,6 +32,8 @@ describe(PhotoBoardService.name, () => {
     httpcontroller = TestBed.inject(HttpTestingController);
   });
 
+  afterEach(() => httpcontroller.verify());
+
   it(`#${PhotoBoardService.prototype.getPhotos.name} should return
     photos with description in uppercase`, done => {
       service.getPhotos().subscribe(photos => {
